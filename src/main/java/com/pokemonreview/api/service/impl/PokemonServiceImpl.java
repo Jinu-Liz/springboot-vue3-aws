@@ -1,10 +1,11 @@
-package com.pokemonreview.api.service;
+package com.pokemonreview.api.service.impl;
 
 import com.pokemonreview.api.dto.PageResponse;
 import com.pokemonreview.api.dto.PokemonDto;
 import com.pokemonreview.api.exception.ResourceNotFoundException;
 import com.pokemonreview.api.models.Pokemon;
 import com.pokemonreview.api.repository.PokemonRepository;
+import com.pokemonreview.api.service.PokemonService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
