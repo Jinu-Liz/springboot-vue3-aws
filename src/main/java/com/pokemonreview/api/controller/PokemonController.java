@@ -25,8 +25,8 @@ public class PokemonController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PokemonDto> pokemonDetail(@PathVariable int id) {
-        return ResponseEntity.ok(pokemonService.getPokemonById(id));
+    public ResponseEntity<PokemonDto> pokemonDetail(@PathVariable("id") int pokemonId) {
+        return ResponseEntity.ok(pokemonService.getPokemonById(pokemonId));
     }
 
     @PostMapping
