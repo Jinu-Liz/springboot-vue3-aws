@@ -118,7 +118,7 @@ public class PokemonControllerTests {
         when(pokemonService.getPokemonById(pokemonId))
                 .thenReturn(pokemonDto);
 
-        ResultActions response = mockMvc.perform(get("/api/pokemon/1")
+        ResultActions response = mockMvc.perform(get("/api/pokemon/{pokemonId}", pokemonId)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(pokemonDto)));
 
@@ -135,7 +135,7 @@ public class PokemonControllerTests {
         when(pokemonService.updatePokemon(pokemonDto, pokemonId))
                 .thenReturn(pokemonDto);
 
-        ResultActions response = mockMvc.perform(put("/api/pokemon/1")
+        ResultActions response = mockMvc.perform(put("/api/pokemon/{pokemonId}", pokemonId)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(pokemonDto)));
 
@@ -151,7 +151,7 @@ public class PokemonControllerTests {
         int pokemonId = 1;
         doNothing().when(pokemonService).deletePokemonId(pokemonId);
 
-        ResultActions response = mockMvc.perform(delete("/api/pokemon/1")
+        ResultActions response = mockMvc.perform(delete("/api/pokemon/{pokemonId}", pokemonId)
                 .contentType(MediaType.APPLICATION_JSON));
 
         response.andExpect(MockMvcResultMatchers.status().isOk());
