@@ -19,10 +19,8 @@ MyResourceException ex) {
         ErrorObject errorObject = new ErrorObject();
         errorObject.setStatusCode(ex.getStatusCode());
         errorObject.setMessage(ex.getMessage());
-        errorObject.setTimestamp(new Date());
 
-        return new ResponseEntity<ErrorObject>(errorObject, 
-HttpStatus.resolve(ex.getStatusCode()));
+        return new ResponseEntity<ErrorObject>(errorObject, HttpStatus.resolve(ex.getStatusCode()));
     }
 
     @ExceptionHandler(Exception.class)
