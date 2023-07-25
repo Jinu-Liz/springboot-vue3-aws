@@ -63,7 +63,7 @@ public class AdminController {
     }
 
     @GetMapping("/{id}")
-		@PreAuthorize("hasAuthority('ROLE_USER')")
+		@PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public UserDto getUser(@PathVariable("id") int userId) {
         UserEntity existUser = userRepository
                 .findById(userId)
