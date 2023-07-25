@@ -3,10 +3,9 @@ package com.pokemonreview.api.exception;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,5 +36,10 @@ MyResourceException ex) {
         log.error(e.getMessage(), e);
 
         return ret;
+    }
+
+    @ExceptionHandler(value = AccessDeniedException.class)
+    public void accessDeniedExceptionHandler(Exception e) {
+        throw new AccessDeniedException(e.getMessage());
     }
 }
