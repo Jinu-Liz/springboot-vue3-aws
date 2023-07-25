@@ -20,7 +20,7 @@ MyResourceException ex) {
         errorObject.setStatusCode(ex.getStatusCode());
         errorObject.setMessage(ex.getMessage());
 
-        return new ResponseEntity<ErrorObject>(errorObject, HttpStatus.resolve(ex.getStatusCode()));
+        return new ResponseEntity<>(errorObject, HttpStatus.resolve(ex.getStatusCode()));
     }
 
     @ExceptionHandler(Exception.class)

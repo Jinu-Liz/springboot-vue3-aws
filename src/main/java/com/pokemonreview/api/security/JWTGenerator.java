@@ -1,4 +1,4 @@
-package security;
+package com.pokemonreview.api.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -15,7 +15,7 @@ import java.util.Date;
 public class JWTGenerator {
 	//private static final KeyPair keyPair = Keys.keyPairFor(SignatureAlgorithm.RS256);
 	private static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
-	
+
 	public String generateToken(Authentication authentication) {
 		String username = authentication.getName();
 		Date currentDate = new Date();
@@ -32,6 +32,7 @@ public class JWTGenerator {
 		System.out.println(token);
 		return token;
 	}
+
 	public String getUsernameFromJWT(String token){
 		Claims claims = Jwts.parserBuilder()
 				.setSigningKey(key)
@@ -54,4 +55,5 @@ public class JWTGenerator {
 					ex.fillInStackTrace());
 		}
 	}
+
 }
