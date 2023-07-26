@@ -90,6 +90,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>springboot-vuejs-aws</finalName>
 	</build>
 
 </project>
